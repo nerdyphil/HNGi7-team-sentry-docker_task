@@ -12,7 +12,7 @@
 
 ### End-points
 
- 1. */add_page*
- 2. */retrieve_page_html*
- 3. */set_page_markup*
- 4. */list_pages*
+ * */add_page*
+ * */retrieve_page_html*
+ * */set_page_markup*
+ * */list_pages*
