@@ -1,7 +1,7 @@
 # HNGi7-team-sentry-docker_task
  A dockerized micro-service for managing static, external pages
 
-#The task
+# The task
 
  Create A dockerized micro-service for managing static, external pages
     - add_page
@@ -10,7 +10,7 @@
     - list_pages
 
 
-#End-points
+# End-points
 
  1. /add_page
  2. /retrieve_page_html
