@@ -1,25 +1,11 @@
-# HNGi7-team-sentry-docker_task
- A dockerized micro-service for managing static, external pages
+# Usage
+    * In your terminal or command prompt:
+    - Enter __npm install__ to install all the dependencies
+    - Enter __npm start__ to start up the server
+    - Enter Open your browser and enter: 
+      localhost:3000/retrieve_page_html?[your website e.g www.google.com]
 
-## The task
- Create A dockerized micro-service for managing static, external pages
-    - add_page
-    - retrieve_page_html
-    - set_page_markdown
-    - list_pages
-    
-**Create A dockerized micro-service for managing static, external pages**
+# Documentation
+  The retrieve_page_html uses a get request to access the webpage and returns the content as a json object
 
- * add_page
- * retrieve_page_html
- * set_page_markdown
- * list_pages
-
-
-### End-points
-
- * */add_page*
- * */retrieve_page_html*
- * */set_page_markup*
- * */list_pages*
 
