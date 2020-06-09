@@ -1,9 +1,13 @@
 # Usage
-    Run npm install to install the neccessary dependencies.
-    
-    Open a terminal window or command prompt and type in npm start
-    
-    Remember to change the mogodb connection url in the config/config.js file if you are running a production build
+* Open a terminal window (on linux and mac) or command prompt on Windows
+    1. Type __npm install__ to install all dependencies
+    2. Type __*npm start*__ to start the server
+        __Default port is 3000
+    3. Open your browser and enter and of the endpoints
+        * http://localhost:3000/add_page?title=title&content=content
+        * http://localhost:3000/retrieve_page_html?url=https://wikipedia.com&type=external
+        * http://localhost:3000/set_page_markup?title=title&content=content
+        * http://localhost:3000/list_pages
 
 # Dependencies
 
