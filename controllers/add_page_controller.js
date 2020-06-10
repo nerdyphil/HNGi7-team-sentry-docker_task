@@ -1,14 +1,14 @@
 const router = require("express").Router(),
             Data = require("../Resources/database/database"),
-            Config = require("../config/config")
+            Config = require("../config/config"),
+            mongoose = require("mongoose");
 
 router.use(require("body-parser").urlencoded({extended:true}))
 
 router.post("/add_page", (req, res) => {
-   if(mongoose.connection.readState == 1){
+   if(mongoose.connection.readyState == 1){
        const title = req.body.title,
            content = req.body.content;
-       console.log(title, content)
        data = new Data({
            title: title,
            content: content

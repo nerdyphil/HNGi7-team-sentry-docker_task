@@ -7,7 +7,6 @@ const router = require("express").Router(),
 // request = require("request"),
 // mongoose = require("mongoose");
 router.get("/list_pages", (req, res) => {
-    console.log(mongoose.connection.readyState)
     if(mongoose.connection.readyState == 1){
         // const url = req.body.url;
         Data.find({}, (err, pages) => {
