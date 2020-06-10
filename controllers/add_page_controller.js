@@ -19,9 +19,11 @@ router.post("/add_page", (req, res) => {
            res.send(200).json({ status: "success" });
        })
    }
-   res.status(503).json({
-       status: "No database connection established"
-   })
+   else{
+       res.status(503).json({
+           status: "No database connection established"
+       })
+   }
 })
 
 module.exports = router

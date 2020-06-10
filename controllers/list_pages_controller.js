@@ -1,12 +1,14 @@
 const router = require("express").Router(),
             Data = require("../Resources/database/database"),
             Config = require("../config/config"),
-            mongoose = require("mongoose")
+            mongoose = require("mongoose"),
+            config = require("../config/config");
 
 // request = require("request"),
 // mongoose = require("mongoose");
 router.get("/list_pages", (req, res) => {
-    if(mongoose.connection.readState == 1){
+    console.log(mongoose.connection.readyState)
+    if(mongoose.connection.readyState == 1){
         // const url = req.body.url;
         Data.find({}, (err, pages) => {
             if (err)
@@ -14,10 +16,12 @@ router.get("/list_pages", (req, res) => {
             res.json(pages)
         })
     }
-    res.status(503).json({
-        status: "failed",
-        message: "No database connection established"
-    })
+    else{
+        res.status(503).json({
+            status: "failed",
+            message: "No database connection established"
+        })
+    }
 })
 
 module.exports = router;

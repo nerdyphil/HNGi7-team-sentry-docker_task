@@ -46,7 +46,11 @@ router.post("/retrieve_page_html:page_id", (req, res) => {
             });
         })
     }
-    res.status(503).json({status: "No database connection established" })
+   else{
+        res.status(503).json({
+            status: "No database connection established"
+        })
+   }
 })
 
 module.exports = router;

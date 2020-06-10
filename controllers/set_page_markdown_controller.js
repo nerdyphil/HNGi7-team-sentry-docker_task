@@ -45,9 +45,11 @@ router.post("/set_page_markdown:page_id", (req, res) => {
             res.send(markdown);
         })
     }
-    res.status(503).json({
-        status: "No database connection established"
-    })
+    else{
+        res.status(503).json({
+            status: "No database connection established"
+        })
+    }
 })
 
 
