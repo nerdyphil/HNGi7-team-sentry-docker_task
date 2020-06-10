@@ -44,9 +44,9 @@ The requests to this endpoint can be external for external pages and internal fo
 
 
 
-## Retrieve a page and set convert to markdown [GET /set_page_markdown]
+## Retrieve a page and convert to markdown [GET /set_page_markdown]
 
-Page is Retrieved in HTML Form Then Converted To Markdown and Sent To Client
+Page is Retrieved in HTML Form Then Converted To Markdown and Sent To Client.
 
 + Response 200 (application/json)
 
@@ -59,8 +59,36 @@ Page is Retrieved in HTML Form Then Converted To Markdown and Sent To Client
                 }
             
             ]
-                            
+            
 
+## Save Edited Markup From User [POST /set_page_markup]
+
++ Response 200 (application/json)
+
+    + Body
+    
+            [
+                {
+                    "title":"some title",
+                    "content":"edited markup"
+                }
+            ]
+                                
+
+## Add A New Page [POST /add_page]
+
++ Response 200 (application/json)
+
+    + Body
+            
+            [
+                {
+                    "title":"some title",
+                    "content":"content of the page"
+                }
+            ]
+            
+            
 
 
 
