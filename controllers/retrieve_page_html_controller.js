@@ -24,7 +24,7 @@ router.get("/retrieve_page_html", (req, res) => {
         })
     } else if (type == "internal") {
         //send a request to /list_pages and get list of pages
-        request("http://localhost:3000/api/list_pages", (error, response, body) => {
+        request("http://team-sentry.herokuapp.com/api/list_pages", (error, response, body) => {
             if (error)
                 res.send(error)
             //Then convert to markdown and send to client

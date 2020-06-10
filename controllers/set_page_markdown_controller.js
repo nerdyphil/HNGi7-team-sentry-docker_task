@@ -24,7 +24,7 @@ router.get("/set_page_markdown", (req, res) => {
         })
     } else if (page == "internal") {
             console.log("received >>>")
-        request("http://localhost:3000/api/list_pages", (error, response, body) => {
+        request("http://team-sentry.herokuapp.com/api/list_pages", (error, response, body) => {
             if (error)
                 res.send(error)
             //Send back list of pages for user to pick and set markdown 
