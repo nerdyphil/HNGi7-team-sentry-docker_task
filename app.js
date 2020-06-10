@@ -1,4 +1,5 @@
-const app = require("express")()
+const app = require("express")(),
+            config = require("./config/config");
 
 const add_page_controller = require("./controllers/add_page_controller")
 const list_pages_controller = require("./controllers/list_pages_controller")
