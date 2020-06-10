@@ -47,10 +47,7 @@
       * Request type: __GET__
          This can be an __internal__ or an __external__ request.
             __Internal Request__ checks the local database and retrieves all available pages then sends them back to the                   client.
-            __External Request__ expects the url of the desired page sent with __url__.
-            
-      * Request Type: __POST__
-            The user selects the page and sends a POST request containing the _id of the page. The page is located in the database and sent back to the user as RAW HTNL
+            The user selects the page and sends a POST request containing the _id of the page. The page is located in the database and sent back to the user as RAW HTML.            
             
 ### /set_page_markdown
     Similar to the /retrieve_page_html, this also has two routes, a GET and POST.
