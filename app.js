@@ -19,7 +19,7 @@ app.get("/api", (req, res)=>{
         root: __dirname
     })
 })
-
-app.listen(process.env.PORT || 3000, ()=>{
-    console.log("Server started >>> ")
+const port = 3000
+app.listen(process.env.PORT || port, ()=>{
+    console.log("Server listening on port " + port + " >>> \n docker on port 4000")
 })

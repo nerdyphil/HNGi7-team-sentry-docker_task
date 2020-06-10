@@ -1,16 +1,22 @@
-const router = require("express").Router();
-            Data = require("../config/database/database"),
-            Config = require("../config/config")
+const router = require("express").Router(),
+            Data = require("../Resources/database/database"),
+            Config = require("../config/config"),
+            mongoose = require("mongoose")
 
 // request = require("request"),
 // mongoose = require("mongoose");
 router.get("/list_pages", (req, res) => {
-    console.log("request received")
-    // const url = req.body.url;
-    Data.find({}, (err, pages) => {
-        if (err)
-            res.send(err);
-        res.json(pages)
+    if(mongoose.connection.readState == 1){
+        // const url = req.body.url;
+        Data.find({}, (err, pages) => {
+            if (err)
+                res.send(err);
+            res.json(pages)
+        })
+    }
+    res.status(503).json({
+        status: "failed",
+        message: "No database connection established"
     })
 })
 
