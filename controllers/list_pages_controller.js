@@ -1,7 +1,7 @@
 const router = require("express").Router(),
             Data = require("../Resources/database/database"),
-            Config = require("../config/config"),
-            mongoose = require("mongoose")
+            mongoose = require("mongoose"),
+            Config = require("../config/config");
 
 // request = require("request"),
 // mongoose = require("mongoose");

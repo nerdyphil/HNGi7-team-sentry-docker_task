@@ -1,8 +1,37 @@
+/**
+ * @file
+ * add_page
+ * 
+ * Adds the webpage HTML markup to the database to be retrieved when 
+ * called on.
+ */
+
+/**
+ * Holds the settings to make this controller fully functional
+ * 
+ * @namespace
+ */
+
 const router = require("express").Router(),
             Data = require("../Resources/database/database"),
-            Config = require("../config/config")
+            mongoose = require("mongoose"),
+            Config = require("../config/config");
+
+
+/**
+ * Support parsing of the application/x-www-form-urlencoded post data
+ * 
+ * @constructor 
+ */
 
 router.use(require("body-parser").urlencoded({extended:true}))
+
+/**
+ * Checks the url and adds the page specified the url to the database
+ * through a post request
+ * 
+ * @constructor
+ */
 
 router.post("/add_page", (req, res) => {
    if(mongoose.connection.readState == 1){
