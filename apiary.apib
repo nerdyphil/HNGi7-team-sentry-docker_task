@@ -1,9 +1,53 @@
 FORMAT: 1A
 HOST: https://team-sentry.herokuapp.com/api
 
-# team-sentry
+# HNGi7 team-sentry API
+
+Welcome to HNGi7 team-sentry API. A dockerized micro-service for managing static, external pages.
 
 Polls is a simple API allowing consumers to view polls and vote in them.
+
+## List of pages [GET /list_pages]
+
+Here you retrieve all pages stored in DB
+    
++ Response 200 (application/json)
+
+       + Body
+   
+                           [
+                                        {
+                                                    "created": "2020-06-10T20:31:47.685Z",
+                                                    "_id": "5ee14f4138871d0024483881",
+                                                    "title": "test from postman",
+                                                    "content": "content from post man",
+                                                    "__v": 0
+                                        }
+                            ]
+
+## Retrieve A Webpage's HTML [GET /retrieve_page_html]
+
+The requests to this endpoint can be external for external pages and internal for pages stored in the DB
+
++ Response 200 (application/json)
+
+       + Body
+       
+                            [
+                                        {
+                                                    "status": "success",
+                                                    "data": "page html"
+                                        }
+                            
+                            ]
+
+
+
+
+
+
+
+
 
 ## Questions Collection [/questions]
 
