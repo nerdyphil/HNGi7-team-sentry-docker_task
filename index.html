@@ -110,16 +110,21 @@
             <li>
                 <h4>/set_page_markdown</h4>
                 <p>
-                    Similar to the /retrieve_page_html, this also has two routes, a GET and POST.
-                    <ol>
-                        <li>Send a GET request to /set_page_markdown</li>
-                        <li>Page is retrieved</li>
-                        <li>Converted to markdown</li>
-                        <li>Sent back</li>
-                        <li>User edits/updates page markdown</li>
-                        <li>User sends POST request with updated markdown</li>
-                        <li>Markdown is converted back to HTML and saved in the database</li>
-                    </ol>
+                    Similar to the /retrieve_page_html, this also has two routes, a <strong>GET</strong>  and <strong>POST</strong>.
+                    <p>The POST route expects: </p>
+                    <ul>
+                        <li>title</li>
+                        <li>markdown</li><br>
+                    </ul>
+                <ol>
+                    <li>Send a GET request to /set_page_markdown</li>
+                    <li>Page is retrieved</li>
+                    <li>Converted to markdown</li>
+                    <li>Sent back</li>
+                    <li>User edits/updates page markdown</li>
+                    <li>User sends POST request with updated markdown</li>
+                    <li>Markdown is converted back to HTML and saved in the database</li>
+                </ol>
                 </p>
             </li>
             <li>

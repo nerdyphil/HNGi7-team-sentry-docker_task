@@ -60,7 +60,6 @@ router.post("/set_page_markdown", (req, res) => {
     //convert to html and save in database
     const htmlTitle = showDown.makeHtml(title),
                 html = showDown.makeHtml(markdown);
-    console.log(html, htmlTitle)
 
     const htmlData = new Data({
         title: htmlTitle,
@@ -71,7 +70,10 @@ router.post("/set_page_markdown", (req, res) => {
             Data.create(htmlData, (err, success) => {
                 if (err)
                     res.send(err);
-                res.send("<h2>Markdown saved successfully</h2>" + "<br>" + success)
+                res.status(200).json({
+                    status: "success",
+                    message: "Markdown saved successfully"
+                })
             });
        }else{
            res.status(503).json({

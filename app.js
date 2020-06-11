@@ -1,3 +1,4 @@
+
 const app = require("express")(),
             config = require("./config/config");
 
@@ -11,21 +12,21 @@ app.use("/api", list_pages_controller)
 app.use("/api", set_page_markdown_controller)
 app.use("/api", retrieve_page_html_controller)
 
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
     res.redirect("/api")
 })
 
-app.get("/api", (req, res)=>{
+app.get("/api", (req, res) => {
     res.sendFile("./index.html", {
         root: __dirname
     })
 })
 
-app.get("*", (req, res)=>{
+app.get("*", (req, res) => {
     res.send("<h1 style='background-color: orangered;padding: 10px;'>SORRY THAT PAGE COULD NOT BE FOUND ON THIS SERVER </h1><br> PLEASE GO BACK TO THE <a href='/'>/api</a> FOR HELP")
 })
 
 const port = 3000
-app.listen(process.env.PORT || port, ()=>{
+app.listen(process.env.PORT || port, () => {
     console.log("Server listening on port " + port + " >>> \n docker on port 4000")
 })
