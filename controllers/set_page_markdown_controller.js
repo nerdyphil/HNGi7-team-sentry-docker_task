@@ -57,7 +57,6 @@ router.post("/set_page_markdown", (req, res) => {
     //Get markdown from client, convert 
     const title = req.body.title;
     const markdown = req.body.markdown;
-    console.log(title, markdown)
     //convert to html and save in database
     const htmlTitle = showDown.makeHtml(title),
                 html = showDown.makeHtml(markdown);
@@ -68,15 +67,24 @@ router.post("/set_page_markdown", (req, res) => {
         content: html
     })
     if(mongoose.connection.readyState == 1){
-        Data.create(htmlData, (err, success) => {
-            if (err)
-                res.send(err);
-            res.send("<h2>Markdown saved successfully</h2>" + "<br>" + success)
-        });
+       if(title && markdown != "" || undefined){
+            Data.create(htmlData, (err, success) => {
+                if (err)
+                    res.send(err);
+                res.send("<h2>Markdown saved successfully</h2>" + "<br>" + success)
+            });
+       }else{
+           res.status(503).json({
+               statua: "fail",
+               message: "title or body cannot be empty"
+           })
+       }
     }
-     res.status(503).json({
-         status: "No database connection established"
-     })
+     else{
+         res.status(503).json({
+             status: "No database connection established"
+         })
+     }
 })
 
 module.exports = router;
