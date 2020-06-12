@@ -2,7 +2,7 @@ const router = require("express").Router(),
             showdown = require("showdown"),
             request = require("request"),
             turndown = require("turndown"),
-            Data = require("../Resources/database/database"),
+            Data = require("../config/database/database"),
             Config = require("../config/config"),
             mongoose = require("mongoose");
 

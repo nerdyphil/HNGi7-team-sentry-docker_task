@@ -1,25 +1,36 @@
 
-const app = require("express")(),
+const express = require("express"),
             config = require("./config/config");
 
-const add_page_controller = require("./controllers/add_page_controller")
-const list_pages_controller = require("./controllers/list_pages_controller")
-const set_page_markdown_controller = require("./controllers/set_page_markdown_controller")
-const retrieve_page_html_controller = require("./controllers/retrieve_page_html_controller")
+const app = express()
+app.use(express.static("Resources"))
+const add_page_controller = require("./controllers/add_page_controller"),
+            list_pages_controller = require("./controllers/list_pages_controller"),
+            set_page_markdown_controller = require("./controllers/set_page_markdown_controller"),
+            retrieve_page_html_controller = require("./controllers/retrieve_page_html_controller"),
+            registerController = require("./controllers/registerController"),
+            signinController = require("./controllers/signinController")
 
-app.use("/api", add_page_controller)
-app.use("/api", list_pages_controller)
-app.use("/api", set_page_markdown_controller)
-app.use("/api", retrieve_page_html_controller)
+app.use("/", registerController)
+app.use("/", signinController)
+app.use("/v1", add_page_controller)
+app.use("/v1", list_pages_controller)
+app.use("/v1", set_page_markdown_controller)
+app.use("/v1", retrieve_page_html_controller)
 
-app.get("/", (req, res) => {
-    res.redirect("/api")
-})
-
-app.get("/api", (req, res) => {
-    res.sendFile("./index.html", {
+app.get("/v1/documentation", (req, res) => {
+    res.sendFile("api_docs.json", {
         root: __dirname
     })
+})
+app.get("/", (req, res) => {
+    res.sendFile("index.html", {
+        root: __dirname
+    })
+})
+
+app.get("/home", (req, res)=>{
+    res.render("home.ejs")
 })
 
 app.get("*", (req, res) => {

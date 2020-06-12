@@ -1,5 +1,5 @@
 const router = require("express").Router(),
-            Data = require("../Resources/database/database"),
+            Data = require("../config/database/database"),
             Config = require("../config/config"),
             mongoose = require("mongoose");
 
