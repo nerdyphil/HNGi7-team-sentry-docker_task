@@ -21,12 +21,6 @@ const userSchema = new mongoose.Schema({
         unique: true 
     },
     settings: {
-        retrieve_page_html:{
-            dataFormat: {
-                type: String,
-                default: "JSON"
-            }
-        },
         set_page_markdown:{
             dataFormat: {
                 type: String,
