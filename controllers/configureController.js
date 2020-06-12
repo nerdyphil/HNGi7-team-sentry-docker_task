@@ -29,8 +29,11 @@ router.get("/configure", (req, res)=>{
 router.post("/configure", (req, res) =>{
     if(mongoose.connection.readyState == 1){
         const id = req.query.id,
-                    add_page_setting = req.body.add_page_setting
-                    set_page_setting = req.body.set_page_setting
+          add_page_setting = req.body.add_page_setting,
+          set_page_setting = req.body.set_page_setting,
+          retrieve_page_setting = req.body.set_page_setting;
+
+
         User.findOne({ account_id: id },(err, user) =>{
             if(!err & user != null){
 
