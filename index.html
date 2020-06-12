@@ -7,14 +7,15 @@
 </head>
 <body>
     <div class="main" id="main">
-        <h1 style="text-align: center;">Welcome to our API [ Team-Sentry ]</h1>
+        <h1 style="text-align: center;font-size: 3em;">Welcome to our API [ Team-Sentry ]</h1>
+        <h1 style="text-align: center;font-size: 3em;">Documentation</h1>
         <p style="text-align: center;">github: <a href="https://github.com/Megxos/HNGi7-team-sentry-docker_task">https://github.com/Megxos/HNGi7-team-sentry-docker_task</a>
         </p>
         <p>
             <big><strong>Use any of these functional endpoints for a quick test</strong></big>
            <p>
                 <strong>NOTE:</strong>
-                Every user is given an <strong>Account ID </strong>and a <strong>unique key on registration</strong>
+                Every user is given an <strong>Account ID </strong>and a <strong>unique key </strong>on registration
                 Copy that and pass it as a query string to all API calls for Authentication
                 <h4>How to passs the parameters: </h4>
                     <ol>
@@ -23,26 +24,27 @@
                         <li>Key as <code>key</code></li>
                     </ol>
                     <strong>Example: </strong>
-                    <p><code>https://team-sentry.herokuapp.com/v1/list_pages?id=ID-YOURID&key=YOURKEY</code></p>
+                    <p><code>https://pages.microapi.com/v1/list_pages?id=ID-YOURID&key=YOURKEY</code></p>
            </p>
         </p>
         <div>
                <ol>
                    <li>
                        <h4>POST: /add_page</h4>
-                       <code>http://team-sentry.herokuapp.com/v1/add_page?id=ID-YOURID&key=YOURKEY</code>
+                       <code>http://pages.microapi.com.com/v1/add_page?id=ID-YOURID&key=YOURKEY</code>
                    </li>
                    <li>
                     <h4>GET: /retrieve_page_html</h4>
-                    <code>http://team-sentry.herokuapp.com/v1/retrieve_page_html?url=https://wikipedia.com&type=external&id=ID-YOURID&key=YOURKEY</code>
+                    <code>http://pages.microapi.com.com/v1/retrieve_page_html?url=https://wikipedia.com&type=external&id=ID-YOURID&key=YOURKEY</code>
                    </li>
                    <li>
                        <h4>GET and POST: /set_page_markdown</h4>
                         <ul>
-                            <li><code>http://team-sentry.herokuapp.com/v1/set_page_markdown?type=external&url=https://wikipedia.com?id=ID-YOURID&key=YOURKEY  > <strong>GET Request</strong></code></li>
+                            <li><code>http://pages.microapi.com.com/v1/set_page_markdown?type=external&url=https://wikipedia.com?id=ID-YOURID&key=YOURKEY
+                                    > <strong>GET Request</strong></code></li>
                             <li>
                                 <code> 
-                                    http://team-sentry.herokuapp.com/v1/set_page_markdown?id=ID-YOURID&key=YOURKEY<strong>POST Request</strong>
+                                    http://pages.microapi.com/v1/set_page_markdown?id=ID-YOURID&key=YOURKEY<strong>POST Request</strong>
                                 </code>
                                 <h5>Form data: </h5>
                                 <ul>
@@ -54,24 +56,39 @@
                    </li>
                    <li>
                        <h4>GET: /list_pages</h4>
-                       <code>http://team-sentry.herokuapp.com/v1/list_pages?id=ID-YOURID&key=YOURKEY</code>
+                       <code>http://pages.microapi.com/v1/list_pages?id=ID-YOURID&key=YOURKEY</code>
                    </li>
                </ol>
         </div>
     </div>
-    <div class="documentation" id="documentation">
-        <h4>ROUTES: </h4>
-        <ul>
-            <li>/ - your are here;</li><br>
-            <li><strong>/home</strong> - This is just for testing to <strong>Register,  Signin and add page</strong></li>
-            <li>/v1/documentation - view documentation as JSON</li>  <br>
-            <li>/v1/configure - view configurations</li> <br>
-            <li>/v1/add_page - Add a new page</li><br>
-            <li>/v1/list_pages - view all pages in database</li> <br>
-            <li>/v1/set_page_markdown - edit the markdown of a page</li><br>
-            <li>/v1/retrieve_page_html - get the html of any page.</li><br>
-        </ul>
-        <h2>Documentation</h2>
+   
+    <div class="documentation" id="documentation" style="display: block ;">
+        <div class="segment" style="display: flex; justify-content: space-evenly;">
+                   <div class="authentication" style="">
+                       <h2 style="text-align: center;">AUTHENTICATION</h2>
+                        <p>
+                            Authentication is by means of a key/token which is provided to the user on<br> registration accompanied
+                            by an account ID which is also provided to the user on registration.
+                            
+                        </p>
+                   </div>
+                   <div class="endpoints" >
+                       <h2>ENDPOINTS: </h2>
+                       <ul>
+                           <li><strong>/</strong> - your are here;</li><br>
+                           <li><strong>/home</strong> - This is just for testing to <strong>Register, Signin and add
+                                   page</strong></li>
+                           <li><strong>/v1</strong> - view documentation as JSON</li> <br>
+                           <li><strong>/v1/configure</strong> - view configurations</li> <br>
+                           <li><strong>/v1/add_page</strong> - Add a new page</li><br>
+                           <li><strong>/v1/list_pages</strong> - view all pages in database</li> <br>
+                           <li><strong>/v1/set_page_markdown</strong> - edit the markdown of a page</li><br>
+                           <li><strong>/v1/retrieve_page_html</strong> - get the html of any page.</li><br>
+                       </ul>
+                   </div>
+        </div>
+        <hr>
+        <h2 style="text-align: center;">HOW THE ENDPOINTS WORK</h2>
         <ol>
             <li>
                 When POST a request is made to <code>/add_page</code>(with title and content contained in the request), it saves it to the database
@@ -90,7 +107,7 @@
                 A GET request is made to /list_pages which retrieves all pages stored in the database.
             </li>
         </ol>
-        <h2>Endpoints</h2>
+        <hr>
         <ol>
            <li>
                 <h4>/add_page</h4>
@@ -156,22 +173,27 @@
             </li>
         </ol>
     </div>
+    <p style="text-align: center;">HNGi7 Team Sentry</p>
     <style>
         body{
-            background-color: skyblue;
-            padding: 10px;
+            background-color: #005cccd6;
+            padding: 5px 20px;
+            word-wrap: break-word;
         }
         code{
             background-color: orange;
-            padding: 2px;
+            padding: 3px;
         }
-        #documentation{
+        #documentation, .authentication{
             background-color: #bae4f5;
             padding: 5px;
         }
         h1,h2,h3,h4,h5{
-            padding: 5px;
+            margin: 2px;
             letter-spacing: .1em;
+        }
+        a{
+            color: orange;
         }
     </style>
 </body>

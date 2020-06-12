@@ -19,7 +19,7 @@ app.use("/v1", set_page_markdown_controller)
 app.use("/v1", retrieve_page_html_controller)
 app.use("/v1", configureController)
 
-app.get("/v1/documentation", (req, res) => {
+app.get("/v1", (req, res) => {
     res.sendFile("api_docs.json", {
         root: __dirname
     })
@@ -35,7 +35,7 @@ app.get("/home", (req, res)=>{
 })
 
 app.get("*", (req, res) => {
-    res.send("<h1 style='background-color: orangered;padding: 10px;'>SORRY THAT PAGE COULD NOT BE FOUND ON THIS SERVER </h1><br> PLEASE GO BACK TO THE <a href='/'>/api</a> FOR HELP")
+    res.send("<h1 style='background-color: orangered;padding: 10px;'>SORRY THAT PAGE COULD NOT BE FOUND ON THIS SERVER </h1><br> PLEASE GO BACK TO THE <a href='/'>/ [root]</a> FOR HELP")
 })
 
 const port = 3000

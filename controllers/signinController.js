@@ -18,7 +18,12 @@ router.post("/signin", (req, res) =>{
             if(checkPwd == true){
                 res.status(200).json({
                     status: "success",
-                    message: "Login successful"
+                    message: "Login successful",
+                    data: {
+                        username: user.username,
+                        "Account ID": user.account_id,
+                        key: user.key
+                    }
                 })
             }else{
                  res.status(401).json({
