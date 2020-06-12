@@ -8,7 +8,8 @@ const add_page_controller = require("./controllers/add_page_controller"),
             set_page_markdown_controller = require("./controllers/set_page_markdown_controller"),
             retrieve_page_html_controller = require("./controllers/retrieve_page_html_controller"),
             registerController = require("./controllers/registerController"),
-            signinController = require("./controllers/signinController")
+            signinController = require("./controllers/signinController"),
+            configureController = require("./controllers/configureController")
 
 app.use("/", registerController)
 app.use("/", signinController)
@@ -16,6 +17,7 @@ app.use("/v1", add_page_controller)
 app.use("/v1", list_pages_controller)
 app.use("/v1", set_page_markdown_controller)
 app.use("/v1", retrieve_page_html_controller)
+app.use("/v1/:endpoint/configure", configureController)
 
 app.get("/v1/documentation", (req, res) => {
     res.sendFile("api_docs.json", {

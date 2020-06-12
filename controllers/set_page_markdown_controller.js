@@ -46,7 +46,8 @@ router.post("/set_page_markdown:page_id", (req, res) => {
     }
     else{
         res.status(503).json({
-            status: "No database connection established"
+            statua: "fail",
+            message: "title or body cannot be empty"
         })
     }
 })

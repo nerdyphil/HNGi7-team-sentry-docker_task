@@ -21,8 +21,12 @@ router.post("/register", (req, res)=>{
             key: auth[1]
         })
         User.create(newUser, (err, user) =>{
-            if(err)
-                console.log(err);
+            if(err){
+                return res.status(409).json({
+                    status: "conflict",
+                    message: "That username already exists"
+                })
+            }
             res.status(200).json({
                 status: "success",
                 message: "Registration successful",

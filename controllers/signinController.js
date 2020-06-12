@@ -7,7 +7,7 @@ router.post("/signin", (req, res) =>{
     User.findOne({
         username: username
     }, (err, user)=>{
-        if (err){
+        if (err || user == null){
             res.status(404).json({
                 status: "fail",
                 message: "User not found"
