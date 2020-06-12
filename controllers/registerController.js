@@ -25,7 +25,12 @@ router.post("/register", (req, res)=>{
                 console.log(err);
             res.status(200).json({
                 status: "success",
-                message: "Registration successful"
+                message: "Registration successful",
+                data: {
+                    username: user.username,
+                    account_id: user.account_id,
+                    "key/token": user.key
+                }
             })
         })
     }
