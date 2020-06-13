@@ -4,20 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team-Sentry API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="main" id="main">
-        <h1 style="text-align: center;font-size: 3em;">Welcome to our API [ Team-Sentry ]</h1>
+    <nav>
+        <div class="brand"></div>
+        <div class="nav-items">
+            <ul>
+                <li><a href="/home#login"><button class="btn btn-success">Login</button></a></li>
+                <li><a href="/home#register"><button class="btn btn-primary">Register</button></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main cotainer-fluid" id="main">
+        <h1 style="text-align: center;font-size: 3em;">STATIC PAGE MANAGER</h1>
         <h1 style="text-align: center;font-size: 3em;">Documentation</h1>
-        <p style="text-align: center;">github: <a href="https://github.com/Megxos/HNGi7-team-sentry-docker_task">https://github.com/Megxos/HNGi7-team-sentry-docker_task</a>
+        <p style="text-align: center;">Github: <a
+                href="https://github.com/hngi/Team-Sentry-Backend/tree/microservice-projects/node/HNGi7-team-sentry-docker_task">https://github.com/hngi/Team-Sentry-Backend/tree/microservice-projects/node/HNGi7-team-sentry-docker_task</a>
         </p>
-        <p>
-            <big><strong>Use any of these functional endpoints for a quick test</strong></big>
-           <p>
+        <h3>
+            <strong>Use any of these functional endpoints for a quick test</strong>
+           </h3>
                 <strong>NOTE:</strong>
                 Every user is given an <strong>Account ID </strong>and a <strong>unique key </strong>on registration
                 Copy that and pass it as a query string to all API calls for Authentication
-                <h4>How to passs the parameters: </h4>
+                <h4>How to pass the parameters: </h4>
                     <ol>
                         <h5>Parameters: </h5>
                         <li>Account ID as <code>id</code></li>
@@ -44,7 +55,7 @@
                                     > <strong>GET Request</strong></code></li>
                             <li>
                                 <code> 
-                                    http://pages.microapi.com/v1/set_page_markdown?id=ID-YOURID&key=YOURKEY<strong>POST Request</strong>
+                                    http://pages.microapi.com/v1/set_page_markdown?id=ID-YOURID&key=YOURKEY > <strong>POST Request</strong>
                                 </code>
                                 <h5>Form data: </h5>
                                 <ul>
@@ -63,29 +74,47 @@
     </div>
    
     <div class="documentation" id="documentation" style="display: block ;">
-        <div class="segment" style="display: flex; justify-content: space-evenly;">
-                   <div class="authentication" style="">
-                       <h2 style="text-align: center;">AUTHENTICATION</h2>
+        <div class="segment">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="authentication" style="">
+                        <h2 style="text-align: center;" class="md-3">AUTHENTICATION</h2>
                         <p>
-                            Authentication is by means of a key/token which is provided to the user on<br> registration accompanied
-                            by an account ID which is also provided to the user on registration.
-                            
+                            Authentication is by means of a key/token which is provided to the user on<br>
+                            registration accompanied
+                            by an account ID which is also provided to the user on registration. <br>
+                            API calls are valid when and <code>id</code> and a <code>key</code> parameter is
+                            passed<br>
+                            to the API call in the format:
+                            <code>id=YOURID&key=YOURKEY</code>
+                            <img src="/images/image1.png" alt="" style="width: 100%">
                         </p>
-                   </div>
-                   <div class="endpoints" >
-                       <h2>ENDPOINTS: </h2>
-                       <ul>
-                           <li><strong>/</strong> - your are here;</li><br>
-                           <li><strong>/home</strong> - This is just for testing to <strong>Register, Signin and add
-                                   page</strong></li>
-                           <li><strong>/v1</strong> - view documentation as JSON</li> <br>
-                           <li><strong>/v1/configure</strong> - view configurations</li> <br>
-                           <li><strong>/v1/add_page</strong> - Add a new page</li><br>
-                           <li><strong>/v1/list_pages</strong> - view all pages in database</li> <br>
-                           <li><strong>/v1/set_page_markdown</strong> - edit the markdown of a page</li><br>
-                           <li><strong>/v1/retrieve_page_html</strong> - get the html of any page.</li><br>
-                       </ul>
-                   </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="endpoints">
+                        <h2 class="text-center md-3">ENDPOINTS: </h2>
+                        <ul>
+                            <li><strong>/</strong> - your are here;</li><br>
+                            <li><strong>/home</strong> - This is just for testing to
+                                <strong>Register, Signin and
+                                    add
+                                    page</strong></li>
+                            <li><strong>/v1</strong> - view documentation as JSON</li>
+                            <br>
+                            <li><strong>/v1/configure</strong> - view configurations
+                            </li> <br>
+                            <li><strong>/v1/add_page</strong> - Add a new page</li><br>
+                            <li><strong>/v1/list_pages</strong> - view all pages in
+                                database</li> <br>
+                            <li><strong>/v1/set_page_markdown</strong> - edit the
+                                markdown of a page</li><br>
+                            <li><strong>/v1/retrieve_page_html</strong> - get the html
+                                of any page.</li><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <hr>
         <h2 style="text-align: center;">HOW THE ENDPOINTS WORK</h2>
@@ -134,11 +163,13 @@
                         <ul>
                             <li>
                                 <h5>Internal Request: </h5>
-                                <p>checks the local database and retrieves all available pages then sends them back to the client.</p>
+                                <p>checks the local database and retrieves all available pages then sends them back to the client.</p><br>
+                                <img src="/images/image3.png" alt="" style="width: 40%; height: 300px;">
                             </li>
                             <li>
                                 <h5>External Request:</h5>
-                                <p>expects the url of the desired page sent with <em>url</em>.</h5>
+                                <p>expects the url of the desired page sent with <em>url</em>.</h5><br>
+                                    <img src="/images/image2.png" alt="" style="width: 40%; height: 300px;">
                             </li>
                         </ul> 
                     </ul>
@@ -173,27 +204,39 @@
             </li>
         </ol>
     </div>
-    <p style="text-align: center;">HNGi7 Team Sentry</p>
+    <p style="text-align: center;" class="p-5"> [ HNGi7 Team Sentry ]</p>
     <style>
         body{
-            background-color: #005cccd6;
+            background-color: #fff;
             padding: 5px 20px;
             word-wrap: break-word;
+            color: #5e6b6b;
         }
         code{
-            background-color: orange;
             padding: 3px;
+            color: orange;
         }
         #documentation, .authentication{
             background-color: #bae4f5;
             padding: 5px;
+            color: #3c3c3c !important;
         }
-        h1,h2,h3,h4,h5{
+        h1{
             margin: 2px;
             letter-spacing: .1em;
         }
         a{
             color: orange;
+        }
+        nav{
+            display: flex;
+            height: 50px;
+            justify-content: ;
+        }
+        nav li{
+            list-style: none;
+            float: right;
+            padding: 10px;
         }
     </style>
 </body>

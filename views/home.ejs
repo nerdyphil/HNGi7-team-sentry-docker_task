@@ -4,40 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <main>
-        <div class="signup">
-            <h1>Sign Up</h1>
+    <main class="container mt-5">
+        <div class="signup" id="signup">
+            <h1 class="text-center">Register</h1>
             <form action="/register" method="POST">
                 <label for="">Username</label>
-                <input type="text" name = "username" >
+                <input type="text" name = "username" class="form-control" required>
                 <label for="">Password</label>
-                <input type="password" name="password">
-                <input type="submit">
+                <input type="password" name="password" class="form-control" minlength="5" required>
+                <input type="submit" value="Join Us" class="form-control btn btn-primary mt-2">
             </form>
         </div>
         <hr>
         <div class="signin">
-            <h1>Sign In</h1>
+            <h1 class="text-center ">Sign In</h1>
             <form action="/signin" method="POST">
                 <label for="">Username</label>
-                <input type="text" name = "username" >
+                <input type="text" name = "username" class="form-control" required>
                 <label for="">Password</label>
-                <input type="password" name="password">
-                <input type="submit">
+                <input type="password" name="password" class="form-control" required>
+                <input type="submit" class="form-control btn btn-primary mt-2">
             </form>
         </div>
         <hr>
         <div class="add_page">
-            <h1>Add Page</h1>
+            <!-- <h1>Add Page</h1>
             <form action="/v1/add_page?id=ID-9N9D1O7H&key=7C8G4R5B5D2P" method="POST">
                 <label for="">Title</label>
                 <input type="text" name="title">
                 <label for="">Content</label>
                 <textarea name="content" id="" cols="30" rows="10"></textarea>
                 <input type="submit">
-            </form>
+            </form> -->
         </div>
         <hr>
     </main>
