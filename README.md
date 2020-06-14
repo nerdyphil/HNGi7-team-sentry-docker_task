@@ -29,20 +29,36 @@
     
 # Documentation
 
-   1. When POST a request is made to _/add_page_ (with title and content contained in the request), it saves it to the database
-   2. When a GET request is made to _/retrieve_page_html_, it retrieves the webpage and displays it as raw HTML.
-   3. When a  request is made to _/set_page_markdown_, we first do a GET request to /set_page_markdown which behind the scene           retrieves the requested url (internal or external url?, converts it to markdown and then send to the client for update.
+   1. When POST a request is made to _/register_ (with username and password contained in the request), it saves the credentials to the database
+   2. When POST a request is made to _/signin_ (with username and password contained in the request), it authenticates the credentials and returns a response with the status
+   3. When POST a request is made to _/add_page_ (with title and content contained in the request), it saves it to the database
+   4. When a GET request is made to _/retrieve_page_html_, it retrieves the webpage and displays it as raw HTML.
+   5. When a  request is made to _/set_page_markdown_, we first do a GET request to /set_page_markdown which behind the scene           retrieves the requested url (internal or external url?, converts it to markdown and then send to the client for update.
       Now the client updates it and then sends a POST request to /set_page_markdown which converts back to html and stores.
-   4. A GET request is made to /list_pages which retrieves all pages stored in the database.
+   6. A GET request is made to /list_pages which retrieves all pages stored in the database.
    
-  ### /add_page
+### /register
       You need to make a POST request here
-      This endpoint takes exactly to parameters
+      This endpoint takes exactly two parameters
+      * username - unique username for new user to be added.
+      * password - password to be assigned to the username.
+         > 'http://microapi.dev/register?username=phil&password=Q7Jhngi7omoologospending'username=administrator&password=Q7JeRF7pedMWrer
+         
+### /signin
+      You need to make a POST request here
+      This endpoint takes exactly two parameters
+      * username - existing username.
+      * password - password associated with the username.
+         > 'http://microapi.dev/signin?username=phil&password=Q7Jhngi7omoologospending'
+
+### /add_page
+      You need to make a POST request here
+      This endpoint takes exactly two parameters
       * title - Title of the page to be added.
       * content - HTML markup of the page to be added.
-         > 'http://somepage.com/add_page?title=title&content=content'
+         > 'http://microapi.dev/add_page?title=title&content=content'
          
-   ### /retrieve_page_html
+### /retrieve_page_html
       The endpoint handles two methods
       * Request type: __GET__
          This can be an __internal__ or an __external__ request.
